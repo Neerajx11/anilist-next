@@ -1,11 +1,13 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { v4 } from "uuid";
+
+import Pagination from "../components/Pagination";
 import Card from "../components/Card";
 import Logo from "../components/Logo";
-import Pagination from "../components/Pagination";
+
 import client from "../graphql/client";
 import { getPages } from "../graphql/queries";
+
+import { v4 } from "uuid";
 
 export async function getServerSideProps(context) {
   let { data } = await client.query(getPages(+context.query.page));
@@ -31,7 +33,7 @@ export default function Home({ animeList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Logo />
-      <div className="flex flex-wrap justify-around">
+      <div className="flex flex-wrap justify-around mt-16">
         {pageList}
         {dummy}
       </div>

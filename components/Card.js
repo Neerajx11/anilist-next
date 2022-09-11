@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { v4 } from "uuid";
-import limitText from "../helper/limitText";
+
 import Genre from "./Genre";
+
+import limitText from "../helper/limitText";
+import { v4 } from "uuid";
 
 const Card = ({ data }) => {
   return (
